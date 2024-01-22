@@ -47,7 +47,11 @@ const Display: React.FC<Props> = ({ uploadedImage, colorPalette }) => {
 							toHex(color[0]) +
 							toHex(color[1]) +
 							toHex(color[2]);
-						return <li key={index}>{color}</li>;
+						return (
+							<div key={index}>
+								{rgb} {hex}
+							</div>
+						);
 					})}
 				</ul>
 			)}

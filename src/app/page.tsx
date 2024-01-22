@@ -2,6 +2,7 @@
 import { useState } from "react";
 import ColorThief from "colorthief";
 import Display from "@/components/Display";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
 	const [uploadedImage, setUploadedImage] = useState<string | null>(null);
@@ -52,6 +53,10 @@ export default function Home() {
 			<h1 className="text-3xl text-center">
 				Extract Beautiful Color Palettes from Images.
 			</h1>
+			<input
+				type="file"
+				onChange={uploadImage}
+			/>
 			<main>
 				<Display
 					uploadedImage={uploadedImage}
