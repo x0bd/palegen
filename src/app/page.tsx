@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import ColorThief from "colorthief";
+import Display from "@/components/Display";
 
 export default function Home() {
 	const [uploadedImage, setUploadedImage] = useState<string | null>(null);
@@ -47,8 +48,16 @@ export default function Home() {
 	};
 
 	return (
-		<h1 className="text-3xl text-center">
-			Extract Beautiful Color Palettes from Images.
-		</h1>
+		<>
+			<h1 className="text-3xl text-center">
+				Extract Beautiful Color Palettes from Images.
+			</h1>
+			<main>
+				<Display
+					uploadedImage={uploadedImage}
+					colorPalette={colorPalette}
+				/>
+			</main>
+		</>
 	);
 }
