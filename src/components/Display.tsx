@@ -20,27 +20,29 @@ const Display: React.FC<Props> = ({ uploadedImage, colorPalette }) => {
 	};
 
 	return (
-		<section className="">
+		<section className="flex flex-col items-center gap-5">
 			<div>
 				{uploadedImage ? (
 					<Image
+						className="border border-lg"
 						src={uploadedImage}
 						alt="uploaded image"
-						width={400}
-						height={400}
+						width={600}
+						height={600}
 					/>
 				) : (
 					<Image
+						className="border border-lg"
 						src="/shadcn.jpg"
 						alt="morty"
-						width={400}
-						height={400}
+						width={600}
+						height={600}
 					/>
 				)}
 			</div>
 
 			{colorPalette && (
-				<ul className="">
+				<ul className="flex items-center gap-10">
 					{colorPalette.map((color, index) => {
 						const rgb = `rgb${color.join(",")}`;
 						const hex =

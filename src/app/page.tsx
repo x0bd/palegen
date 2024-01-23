@@ -3,6 +3,7 @@ import { useState } from "react";
 import ColorThief from "colorthief";
 import Display from "@/components/Display";
 import { Button } from "@/components/ui/button";
+import { ImageIcon, Repeat } from "lucide-react";
 
 export default function Home() {
 	const [uploadedImage, setUploadedImage] = useState<string | null>(null);
@@ -41,7 +42,8 @@ export default function Home() {
 			if (typeof event.target.result === "string") {
 				img.src = event.target.result;
 			} else {
-				img.src = "";
+				// img.src = "";
+				img.src = "/shadcn.jpg";
 			}
 		};
 
@@ -49,20 +51,36 @@ export default function Home() {
 	};
 
 	return (
-		<>
+		<main className="flex flex-col gap-10 items-center">
 			<h1 className="text-3xl text-center">
 				Extract Beautiful Color Palettes from Images.
 			</h1>
+
 			<input
 				type="file"
 				onChange={uploadImage}
+				id="file"
+				hidden
 			/>
-			<main>
+			<div className="flex items-center gap-2">
+				<Button
+					className="flex gap-2 items-center"
+					variant="secondary"
+					onClick={() => document.getElementById("file")?.click()}
+				>
+					Upload <ImageIcon />
+				</Button>
+				<Button variant="outline">
+					<Repeat />
+				</Button>
+			</div>
+
+			<section>
 				<Display
 					uploadedImage={uploadedImage}
 					colorPalette={colorPalette}
 				/>
-			</main>
-		</>
+			</section>
+		</main>
 	);
 }

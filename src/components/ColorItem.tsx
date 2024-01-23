@@ -2,6 +2,7 @@
 
 import { Copy } from "lucide-react";
 import React, { useState } from "react";
+import { Card } from "./ui/card";
 
 interface Props {
 	rgb: string | null;
@@ -16,8 +17,12 @@ const ColorItem: React.FC<Props> = ({ rgb, hex }) => {
 	};
 
 	return (
-		<div className={`bg-[${rgb}]`}>
-			<span
+		<div
+			style={{ backgroundColor: hex! }}
+			className="flex text-sm items-center relative h-40 w-28 rounded-lg border-black dark:border-white border"
+		>
+			<div
+				className="cursor-pointer absolute p-2 px-2 w-full bottom-0 border-t border-transparent rounded-br-sm rounded-bl-sm flex justify-between font-semibold"
 				onClick={(e: React.MouseEvent<HTMLInputElement>) => {
 					copyToClipboard(e);
 					setCopied(true);
@@ -27,7 +32,7 @@ const ColorItem: React.FC<Props> = ({ rgb, hex }) => {
 				}}
 			>
 				{copied ? "Copied" : hex} <Copy />
-			</span>
+			</div>
 		</div>
 	);
 };
