@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Card } from "./ui/card";
+import ColorItem from "./ColorItem";
 
 interface Props {
 	uploadedImage: string | null;
@@ -48,9 +49,11 @@ const Display: React.FC<Props> = ({ uploadedImage, colorPalette }) => {
 							toHex(color[1]) +
 							toHex(color[2]);
 						return (
-							<div key={index}>
-								{rgb} {hex}
-							</div>
+							<ColorItem
+								key={index}
+								rgb={rgb}
+								hex={hex}
+							/>
 						);
 					})}
 				</ul>
