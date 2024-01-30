@@ -42,7 +42,6 @@ export default function Home() {
 			if (typeof event.target.result === "string") {
 				img.src = event.target.result;
 			} else {
-				// img.src = "";
 				img.src = "/shadcn.jpg";
 			}
 		};
